@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_shared_navs",
+  "info": {
+    "displayName": "Navigation"
+  },
+  "options": {},
+  "attributes": {
+    "href": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "isExternal": {
+      "type": "boolean"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "PRIMARY"
+      ]
+    }
+  },
+  "config": {}
+}

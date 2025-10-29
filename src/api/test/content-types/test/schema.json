@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tests",
+  "info": {
+    "singularName": "test",
+    "pluralName": "tests",
+    "displayName": "Test"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "boolean": {
+      "type": "boolean",
+      "default": false
+    },
+    "richText": {
+      "type": "richtext"
+    },
+    "json": {
+      "type": "json"
+    },
+    "number": {
+      "type": "integer"
+    },
+    "email": {
+      "type": "email"
+    },
+    "date": {
+      "type": "date"
+    },
+    "password": {
+      "type": "password"
+    },
+    "enum": {
+      "type": "enumeration",
+      "enum": [
+        "type1"
+      ]
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "markdown": {
+      "type": "richtext"
+    },
+    "link": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
+    }
+  }
+}
