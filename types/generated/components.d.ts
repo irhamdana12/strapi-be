@@ -1,11 +1,118 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface ElementCard extends Struct.ComponentSchema {
-  collectionName: 'components_element_cards';
+export interface BlocksCardGrid extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_card_grids';
   info: {
-    displayName: 'Card';
+    displayName: 'Card Grid';
   };
-  attributes: {};
+  attributes: {
+    card: Schema.Attribute.Component<'shared.card', true>;
+  };
+}
+
+export interface BlocksContentWithImage extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_content_with_images';
+  info: {
+    displayName: 'Content With Image';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images', true>;
+    link: Schema.Attribute.Component<'shared.link', false>;
+    reserved: Schema.Attribute.Boolean;
+  };
+}
+
+export interface BlocksFaqs extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_faqs';
+  info: {
+    displayName: 'Faqs';
+  };
+  attributes: {
+    faqs: Schema.Attribute.Component<'shared.cardss', true>;
+  };
+}
+
+export interface BlocksHero extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_heroes';
+  info: {
+    displayName: 'Hero';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    links: Schema.Attribute.Component<'shared.link', true>;
+    text: Schema.Attribute.RichText;
+  };
+}
+
+export interface BlocksMarkdown extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_markdowns';
+  info: {
+    displayName: 'Markdown';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText;
+  };
+}
+
+export interface BlocksProduct extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_products';
+  info: {
+    displayName: 'Product';
+  };
+  attributes: {
+    card: Schema.Attribute.Component<'shared.cardss', true>;
+  };
+}
+
+export interface BlocksSectionHeading extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_section_headings';
+  info: {
+    displayName: 'Section Heading';
+  };
+  attributes: {
+    anchorLink: Schema.Attribute.String;
+    heading: Schema.Attribute.String;
+    subHeading: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksSolutionTabs extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_solution_tabs';
+  info: {
+    displayName: 'Solution Tabs';
+  };
+  attributes: {
+    tabs: Schema.Attribute.Component<'blocks.solutions-tab-item', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksSolutionsTabItem extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_solutions_tab_items';
+  info: {
+    displayName: 'Solutions Tab Item';
+  };
+  attributes: {
+    bullets: Schema.Attribute.Component<'shared.bullets', true>;
+    image: Schema.Attribute.Media<'images'>;
+    key: Schema.Attribute.String;
+    label: Schema.Attribute.String;
+    result: Schema.Attribute.Component<'shared.bullets', true>;
+    result_title: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksTab extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_tabs';
+  info: {
+    displayName: 'tab';
+  };
+  attributes: {
+    tabs: Schema.Attribute.Component<'blocks.solutions-tab-item', true>;
+  };
 }
 
 export interface LayoutBanner extends Struct.ComponentSchema {
@@ -27,7 +134,7 @@ export interface LayoutFooter extends Struct.ComponentSchema {
     icon: 'crown';
   };
   attributes: {
-    Logo: Schema.Attribute.Component<'shared.logo-link', false>;
+    logo: Schema.Attribute.Component<'shared.logo-link', false>;
     navItems: Schema.Attribute.Component<'shared.link', true>;
     socialLinks: Schema.Attribute.Component<'shared.logo-link', true>;
     text: Schema.Attribute.String;
@@ -40,7 +147,7 @@ export interface LayoutHeader extends Struct.ComponentSchema {
     displayName: 'Header';
   };
   attributes: {
-    cta: Schema.Attribute.Component<'shared.link', false>;
+    cta: Schema.Attribute.Component<'shared.link', true>;
     logo: Schema.Attribute.Component<'shared.logo-link', false>;
     navItems: Schema.Attribute.Component<'shared.link', true>;
   };
@@ -59,13 +166,49 @@ export interface MenuDropdownn extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedBullets extends Struct.ComponentSchema {
+  collectionName: 'components_shared_bullets';
+  info: {
+    displayName: 'bullets';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+  };
+}
+
+export interface SharedCard extends Struct.ComponentSchema {
+  collectionName: 'components_shared_cards';
+  info: {
+    displayName: 'Card';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.Component<'shared.link', false>;
+    text: Schema.Attribute.Text;
+  };
+}
+
+export interface SharedCardss extends Struct.ComponentSchema {
+  collectionName: 'components_shared_cardsses';
+  info: {
+    displayName: 'Cards';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    key: Schema.Attribute.String;
+    link: Schema.Attribute.Component<'shared.link', true>;
+    text: Schema.Attribute.Text;
+  };
+}
+
 export interface SharedLink extends Struct.ComponentSchema {
   collectionName: 'components_shared_links';
   info: {
     displayName: 'Link';
   };
   attributes: {
-    description: Schema.Attribute.String;
     href: Schema.Attribute.String;
     isButtonLink: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -166,11 +309,23 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'element.card': ElementCard;
+      'blocks.card-grid': BlocksCardGrid;
+      'blocks.content-with-image': BlocksContentWithImage;
+      'blocks.faqs': BlocksFaqs;
+      'blocks.hero': BlocksHero;
+      'blocks.markdown': BlocksMarkdown;
+      'blocks.product': BlocksProduct;
+      'blocks.section-heading': BlocksSectionHeading;
+      'blocks.solution-tabs': BlocksSolutionTabs;
+      'blocks.solutions-tab-item': BlocksSolutionsTabItem;
+      'blocks.tab': BlocksTab;
       'layout.banner': LayoutBanner;
       'layout.footer': LayoutFooter;
       'layout.header': LayoutHeader;
       'menu.dropdownn': MenuDropdownn;
+      'shared.bullets': SharedBullets;
+      'shared.card': SharedCard;
+      'shared.cardss': SharedCardss;
       'shared.link': SharedLink;
       'shared.logo-link': SharedLogoLink;
       'shared.media': SharedMedia;

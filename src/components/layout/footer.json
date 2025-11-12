@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "Logo": {
+    "logo": {
       "type": "component",
       "component": "shared.logo-link",
       "repeatable": false

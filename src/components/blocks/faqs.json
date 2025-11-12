@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_blocks_faqs",
+  "info": {
+    "displayName": "Faqs"
+  },
+  "options": {},
+  "attributes": {
+    "faqs": {
+      "type": "component",
+      "component": "shared.cardss",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

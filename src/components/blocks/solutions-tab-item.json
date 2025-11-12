@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_blocks_solutions_tab_items",
+  "info": {
+    "displayName": "Solutions Tab Item"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "key": {
+      "type": "string"
+    },
+    "result_title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "bullets": {
+      "type": "component",
+      "component": "shared.bullets",
+      "repeatable": true
+    },
+    "result": {
+      "type": "component",
+      "component": "shared.bullets",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

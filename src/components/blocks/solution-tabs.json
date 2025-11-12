@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_blocks_solution_tabs",
+  "info": {
+    "displayName": "Solution Tabs"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "tabs": {
+      "type": "component",
+      "component": "blocks.solutions-tab-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

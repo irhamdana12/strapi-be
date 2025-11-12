@@ -25,9 +25,6 @@
         "PRIMARY",
         "SECONDARY"
       ]
-    },
-    "description": {
-      "type": "string"
     }
   },
   "config": {}

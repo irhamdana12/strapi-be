@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_shared_cardsses",
+  "info": {
+    "displayName": "Cards"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "text": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "link": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": true
+    },
+    "key": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

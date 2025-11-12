@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_blocks_products",
+  "info": {
+    "displayName": "Product"
+  },
+  "options": {},
+  "attributes": {
+    "card": {
+      "type": "component",
+      "component": "shared.cardss",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
